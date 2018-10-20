@@ -1,5 +1,6 @@
 package com.example.vimukthi.navbarexample;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,9 +13,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+   private Button btnNxt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +45,15 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        btnNxt =(Button)findViewById(R.id.btnNxt);
+        btnNxt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent =new Intent(MainActivity.this,Main2Activity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -68,6 +82,7 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Toast.makeText(MainActivity.this,"This is setting activity",Toast.LENGTH_SHORT).show();
             return true;
         }
 
@@ -81,16 +96,22 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-            // Handle the camera action
+            Toast.makeText(MainActivity.this,"This is import activity",Toast.LENGTH_SHORT).show();
+
         } else if (id == R.id.nav_gallery) {
+            Toast.makeText(MainActivity.this,"This is gallery activity",Toast.LENGTH_SHORT).show();
 
         } else if (id == R.id.nav_slideshow) {
+            Toast.makeText(MainActivity.this,"This is slideshow activity",Toast.LENGTH_SHORT).show();
 
         } else if (id == R.id.nav_manage) {
+            Toast.makeText(MainActivity.this,"This is tools activity",Toast.LENGTH_SHORT).show();
 
         } else if (id == R.id.nav_share) {
+            Toast.makeText(MainActivity.this,"This is share activity",Toast.LENGTH_SHORT).show();
 
         } else if (id == R.id.nav_send) {
+            Toast.makeText(MainActivity.this,"This is send activity",Toast.LENGTH_SHORT).show();
 
         }
 
